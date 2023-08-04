@@ -1,0 +1,24 @@
+from aiogram.dispatcher.filters.state import State, StatesGroup
+
+
+class QashqadaryoHomeSotishHovli(StatesGroup):
+    umumiyMaydon = State()
+    xonalar = State()
+    oshxona = State()
+    hammom = State()
+    qavat = State()
+    remont = State()
+    jihozlar = State()
+    gaz = State()
+    svet = State()
+    suv = State()
+    kanal = State()
+    qoshimchaMalumot = State()
+    valyuta = State()
+    narxi = State()
+    manzil = State()
+    moljal = State()
+    telNumberOne = State()
+    telNumberTwo = State()
+    images = State()
+    check = State()

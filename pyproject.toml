@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "osonbot"
+version = "0.1.0"
+description = ""
+authors = ["@smuhammadaziz"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+aiogram = "^2.25.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
