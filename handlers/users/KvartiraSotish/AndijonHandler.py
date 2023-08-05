@@ -573,8 +573,7 @@ async def check(message: types.Message, state: FSMContext):
     mycheck = message.text
     chat_id = message.chat.id
 
-    # channel_id = -1001354536408
-    channel_id = -1001747207701
+    channel_id = -1001354536408
 
     data1 = "#Андижон__Вилояти \n"
     data2 = "#Квартира__Сотилади \n\n"

@@ -1,6 +1,6 @@
 channel = "demouyjoytoshkent"
 
-andijonLink="demouyjoytoshkent"
+andijonLink="OsonBozor_Andijon_UyBozor_Ijara"
 buxoroLink="OsonBozor_Buxoro_UyBozor_IjaraUy"
 fargonaLink="OsonBozor_Fargona_UyBozor_Ijara"
 jizzaxLink="OsonBozor_Jizzax_UyBozor_IjaraUy"
