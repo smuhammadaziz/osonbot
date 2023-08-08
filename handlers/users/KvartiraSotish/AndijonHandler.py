@@ -390,7 +390,26 @@ async def images(message: types.Message, album: List[types.Message], state: FSMC
     chat_id = message.chat.id
     media_group = types.MediaGroup()
 
-    
+    for obj in album:
+        if obj.content_type == 'photo':
+            if obj.photo:
+                file_id = obj.photo[-1].file_id
+            else:
+                file_id = obj[obj.content_type].file_id
+            try:
+                media_group.attach({"media": file_id,
+                                    "type": obj.content_type,
+                                    "caption": obj.caption})
+
+            except Exception as err:
+                logging.exception(err)
+                return await message.answer("Бундай файл юклаб бўлмайди")
+        else:
+            await message.reply("❗ Расмдан бошқа файл турини юклай олмайсиз")
+
+    await state.update_data({
+        'images': media_group
+    })
 
     data = await state.get_data()
 
@@ -428,10 +447,8 @@ async def images(message: types.Message, album: List[types.Message], state: FSMC
         stringify = " ".join(array)
         cyrillic_text = to_cyrillic(stringify)
 
-        album[0].caption = cyrillic_text
-
         await bot.send_media_group(chat_id=chat_id, media=media_group)
-        # await bot.send_message(chat_id=chat_id, text=cyrillic_text, reply_markup=checkbtn)
+        await bot.send_message(chat_id=chat_id, text=cyrillic_text, reply_markup=checkbtn)
         await bot.send_message(chat_id=chat_id,
                                text="Маълумотлар тўғрилигини тасдиқласангиз,  эълонни каналга жойланг")
         await AndijonHomeSotish.next()
@@ -467,10 +484,8 @@ async def images(message: types.Message, album: List[types.Message], state: FSMC
         stringify = " ".join(array)
         cyrillic_text = to_cyrillic(stringify)
 
-        album[0].caption = cyrillic_text
-
         await bot.send_media_group(chat_id=chat_id, media=media_group)
-        # await bot.send_message(chat_id=chat_id, text=cyrillic_text, reply_markup=checkbtn)
+        await bot.send_message(chat_id=chat_id, text=cyrillic_text, reply_markup=checkbtn)
         await bot.send_message(chat_id=chat_id,
                                text="Маълумотлар тўғрилигини тасдиқласангиз,  эълонни каналга жойланг")
         await AndijonHomeSotish.next()
@@ -507,10 +522,8 @@ async def images(message: types.Message, album: List[types.Message], state: FSMC
         stringify = " ".join(array)
         cyrillic_text = to_cyrillic(stringify)
 
-        album[0].caption = cyrillic_text
-
         await bot.send_media_group(chat_id=chat_id, media=media_group)
-        # await bot.send_message(chat_id=chat_id, text=cyrillic_text, reply_markup=checkbtn)
+        await bot.send_message(chat_id=chat_id, text=cyrillic_text, reply_markup=checkbtn)
         await bot.send_message(chat_id=chat_id,
                                text="Маълумотлар тўғрилигини тасдиқласангиз,  эълонни каналга жойланг")
         await AndijonHomeSotish.next()
@@ -548,34 +561,11 @@ async def images(message: types.Message, album: List[types.Message], state: FSMC
         stringify = " ".join(array)
         cyrillic_text = to_cyrillic(stringify)
 
-        album[0].caption = cyrillic_text
-
         await bot.send_media_group(chat_id=chat_id, media=media_group)
-        # await bot.send_message(chat_id=chat_id, text=cyrillic_text, reply_markup=checkbtn)
+        await bot.send_message(chat_id=chat_id, text=cyrillic_text, reply_markup=checkbtn)
         await bot.send_message(chat_id=chat_id,
                                text="Маълумотлар тўғрилигини тасдиқласангиз,  эълонни каналга жойланг")
         await AndijonHomeSotish.next()
-
-    for obj in album:
-        if obj.content_type == 'photo':
-            if obj.photo:
-                file_id = obj.photo[-1].file_id
-            else:
-                file_id = obj[obj.content_type].file_id
-            try:
-                media_group.attach({"media": file_id,
-                                    "type": obj.content_type,
-                                    "caption": obj.caption})
-
-            except Exception as err:
-                logging.exception(err)
-                return await message.answer("Бундай файл юклаб бўлмайди")
-        else:
-            await message.reply("❗ Расмдан бошқа файл турини юклай олмайсиз")
-
-    await state.update_data({
-        'images': media_group
-    })
 
 
 @dp.message_handler(state=AndijonHomeSotish.check)
