@@ -20,12 +20,6 @@ async def first(callback_query: types.CallbackQuery):
     await callback_query.message.answer("<b> Умумий майдонини ёзинг </b>", parse_mode="HTML")
     await AndijonHomeSotish.umumiyMaydon.set()
 
-@dp.callback_query_handler(text="andijonkv", state=None, chat_type="private")
-async def first(callback_query: types.CallbackQuery):
-    await callback_query.answer("Kvartira tanlandi")
-    await callback_query.message.answer("<b> Умумий майдонини ёзинг </b>", parse_mode="HTML")
-    await AndijonHomeSotish.umumiyMaydon.set()
-
 
 @dp.message_handler(lambda message: not message.text.isdigit(), state=AndijonHomeSotish.umumiyMaydon)
 async def check_umumiy(message: types.Message):
