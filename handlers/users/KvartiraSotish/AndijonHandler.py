@@ -13,12 +13,30 @@ from transliterate import to_cyrillic
 
 mode = "Markdown"
 
+file_ids = []
+
 
 @dp.callback_query_handler(text="andijonkv", state=None, chat_type="private")
 async def first(callback_query: types.CallbackQuery):
     await callback_query.answer("Kvartira tanlandi")
-    await callback_query.message.answer("<b> Умумий майдонини ёзинг </b>", parse_mode="HTML")
-    await AndijonHomeSotish.umumiyMaydon.set()
+    await callback_query.message.answer("<b> Расмларни жойлаш (10 - тагача) </b>", parse_mode="HTML")
+    await AndijonHomeSotish.images.set()
+
+
+@dp.message_handler(is_media_group=True, state=AndijonHomeSotish.images, content_types=types.ContentTypes.ANY)
+async def start(message: types.Message, album: List[types.Message], state: FSMContext):
+
+    for photo in album:
+        if photo:
+            file_id = photo.photo[-1].file_id
+            file_ids.append(file_id)
+
+    await state.update_data({
+        "images": file_ids
+    })
+
+    await message.answer("<b> Умумий майдонини ёзинг </b>", parse_mode="HTML")
+    await AndijonHomeSotish.next()
 
 
 @dp.message_handler(lambda message: not message.text.isdigit(), state=AndijonHomeSotish.umumiyMaydon)
@@ -376,40 +394,14 @@ async def umumiyMaydon(message: types.Message, state: FSMContext):
 
 @dp.message_handler(state=AndijonHomeSotish.telNumberTwo)
 async def umumiyMaydon(message: types.Message, state: FSMContext):
+
     text = message.text
     await state.update_data({
         "telNumberTwo": text
     })
-    await message.answer(text="Расмларни жойлаш (10 - тагача)")
 
-    await AndijonHomeSotish.next()
-
-
-@dp.message_handler(is_media_group=True, state=AndijonHomeSotish.images, content_types=types.ContentTypes.PHOTO)
-async def images(message: types.Message, album: List[types.Message], state: FSMContext):
     chat_id = message.chat.id
     media_group = types.MediaGroup()
-
-    for obj in album:
-        if obj.content_type == 'photo':
-            if obj.photo:
-                file_id = obj.photo[-1].file_id
-            else:
-                file_id = obj[obj.content_type].file_id
-            try:
-                media_group.attach({"media": file_id,
-                                    "type": obj.content_type,
-                                    "caption": obj.caption})
-
-            except Exception as err:
-                logging.exception(err)
-                return await message.answer("Бундай файл юклаб бўлмайди")
-        else:
-            await message.reply("❗ Расмдан бошқа файл турини юклай олмайсиз")
-
-    await state.update_data({
-        'images': media_group
-    })
 
     data = await state.get_data()
 
@@ -442,15 +434,20 @@ async def images(message: types.Message, album: List[types.Message], state: FSMC
             if item == "doesnotexist":
                 continue
 
-            array.append(item)
+            array.append(item)   
 
         stringify = " ".join(array)
         cyrillic_text = to_cyrillic(stringify)
 
+        media_group.attach_photo(f"{file_ids[-1]}", f"{cyrillic_text}")
+
+        for file_id in file_ids:
+            media_group.attach_photo(f"{file_id}")
+
         await bot.send_media_group(chat_id=chat_id, media=media_group)
-        await bot.send_message(chat_id=chat_id, text=cyrillic_text, reply_markup=checkbtn)
-        await bot.send_message(chat_id=chat_id,
-                               text="Маълумотлар тўғрилигини тасдиқласангиз,  эълонни каналга жойланг")
+        # await bot.send_message(chat_id=chat_id, text=cyrillic_text, reply_markup=checkbtn)
+        await bot.send_message(chat_id=chat_id, text="Маълумотлар тўғрилигини тасдиқласангиз,  эълонни каналга жойланг", 
+                               reply_markup=checkbtn)
         await AndijonHomeSotish.next()
     elif data['qoshimchaMalumot'] == "⏭️ Кейингиси":
         data3 = "🔶 Умумий майдон: " + data['umumiyMaydon'] + "m²" + "\n"
@@ -484,10 +481,15 @@ async def images(message: types.Message, album: List[types.Message], state: FSMC
         stringify = " ".join(array)
         cyrillic_text = to_cyrillic(stringify)
 
+        media_group.attach_photo(f"{file_ids[-1]}", f"{cyrillic_text}")
+
+        for file_id in file_ids:
+            media_group.attach_photo(f"{file_id}")
+
         await bot.send_media_group(chat_id=chat_id, media=media_group)
-        await bot.send_message(chat_id=chat_id, text=cyrillic_text, reply_markup=checkbtn)
-        await bot.send_message(chat_id=chat_id,
-                               text="Маълумотлар тўғрилигини тасдиқласангиз,  эълонни каналга жойланг")
+        # await bot.send_message(chat_id=chat_id, text=cyrillic_text, reply_markup=checkbtn)
+        await bot.send_message(chat_id=chat_id, text="Маълумотлар тўғрилигини тасдиқласангиз,  эълонни каналга жойланг", 
+                               reply_markup=checkbtn)
         await AndijonHomeSotish.next()
 
     elif data['telNumberTwo'] == "⏭️ Кейингиси":
@@ -522,10 +524,15 @@ async def images(message: types.Message, album: List[types.Message], state: FSMC
         stringify = " ".join(array)
         cyrillic_text = to_cyrillic(stringify)
 
+        media_group.attach_photo(f"{file_ids[-1]}", f"{cyrillic_text}")
+
+        for file_id in file_ids:
+            media_group.attach_photo(f"{file_id}")
+
         await bot.send_media_group(chat_id=chat_id, media=media_group)
-        await bot.send_message(chat_id=chat_id, text=cyrillic_text, reply_markup=checkbtn)
-        await bot.send_message(chat_id=chat_id,
-                               text="Маълумотлар тўғрилигини тасдиқласангиз,  эълонни каналга жойланг")
+        # await bot.send_message(chat_id=chat_id, text=cyrillic_text, reply_markup=checkbtn)
+        await bot.send_message(chat_id=chat_id, text="Маълумотлар тўғрилигини тасдиқласангиз,  эълонни каналга жойланг", 
+                               reply_markup=checkbtn)
         await AndijonHomeSotish.next()
 
     else:
@@ -561,11 +568,19 @@ async def images(message: types.Message, album: List[types.Message], state: FSMC
         stringify = " ".join(array)
         cyrillic_text = to_cyrillic(stringify)
 
+        media_group.attach_photo(f"{file_ids[-1]}", f"{cyrillic_text}")
+
+        for file_id in file_ids:
+            media_group.attach_photo(f"{file_id}")
+
         await bot.send_media_group(chat_id=chat_id, media=media_group)
-        await bot.send_message(chat_id=chat_id, text=cyrillic_text, reply_markup=checkbtn)
-        await bot.send_message(chat_id=chat_id,
-                               text="Маълумотлар тўғрилигини тасдиқласангиз,  эълонни каналга жойланг")
+        # await bot.send_message(chat_id=chat_id, text=cyrillic_text, reply_markup=checkbtn)
+        await bot.send_message(chat_id=chat_id, text="Маълумотлар тўғрилигини тасдиқласангиз,  эълонни каналга жойланг", 
+                               reply_markup=checkbtn)
         await AndijonHomeSotish.next()
+  
+
+    
 
 
 @dp.message_handler(state=AndijonHomeSotish.check)
@@ -612,6 +627,11 @@ async def check(message: types.Message, state: FSMContext):
 
             stringify = " ".join(array)
             cyrillic_text = to_cyrillic(stringify)
+
+            media_group.attach_photo(f"{file_ids[-1]}", f"{cyrillic_text}")
+
+            for file_id in file_ids:
+                media_group.attach_photo(f"{file_id}")
 
             await bot.send_media_group(chat_id=channel_id, media=media_group)
             await bot.send_message(chat_id=channel_id, text=cyrillic_text, parse_mode="HTML", reply_markup=link_button)
