@@ -748,7 +748,7 @@ async def check(message: types.Message, state: FSMContext):
             await bot.send_message(chat_id=chat_id, text="✅ Эълон каналга жойланди!", reply_markup=start)
             await state.finish()
 
-    else:
+    if mycheck == "❌ Эълонни қайтадан ёзиш":
         await bot.send_message(chat_id=chat_id, text="❌ Эълон қабул қилинмади")
         await bot.send_message(chat_id=chat_id, text="Еълон бериш учун қайтадан уриниб кўринг", reply_markup=start)
         await state.finish()
