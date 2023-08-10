@@ -445,9 +445,10 @@ async def umumiyMaydon(message: types.Message, state: FSMContext):
             media_group.attach_photo(f"{file_id}")
 
         await bot.send_media_group(chat_id=chat_id, media=media_group)
+        await message.answer_media_group(chat_id, media=media_group, reply=checkbtn)
         # await bot.send_message(chat_id=chat_id, text=cyrillic_text, reply_markup=checkbtn)
         await bot.send_message(chat_id=chat_id, text="Маълумотлар тўғрилигини тасдиқласангиз,  эълонни каналга жойланг", 
-                               reply_markup=checkbtn)
+                               )
         await AndijonHomeSotish.next()
     elif data['qoshimchaMalumot'] == "⏭️ Кейингиси":
         data3 = "🔶 Умумий майдон: " + data['umumiyMaydon'] + "m²" + "\n"
