@@ -2,6 +2,7 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 
 
 class SurxondaryoYerSotish(StatesGroup):
+    images = State()
     umumiyMaydon = State()
     gaz = State()
     svet = State()
@@ -15,5 +16,4 @@ class SurxondaryoYerSotish(StatesGroup):
     moljal = State()
     telNumberOne = State()
     telNumberTwo = State()
-    images = State()
     check = State()

@@ -2,6 +2,7 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 
 
 class SirdaryoHomeSotish(StatesGroup):
+    images = State()
     umumiyMaydon = State()
     xonalar = State()
     qavat = State()
@@ -18,5 +19,4 @@ class SirdaryoHomeSotish(StatesGroup):
     moljal = State()
     telNumberOne = State()
     telNumberTwo = State()
-    images = State()
     check = State()
