@@ -436,7 +436,7 @@ async def umumiyMaydon(message: types.Message, state: FSMContext):
             if item == "doesnotexist":
                 continue
 
-            array.append(item)   
+            array.append(item)
 
         stringify = " ".join(array)
         cyrillic_text = to_cyrillic(stringify)
@@ -572,7 +572,7 @@ async def umumiyMaydon(message: types.Message, state: FSMContext):
         await bot.send_media_group(chat_id=chat_id, media=media_group)
         await bot.send_message(chat_id=chat_id, text=check_text, reply_markup=checkbtn)
         await AndijonHomeSotish.next()
-  
+
 
 @dp.message_handler(state=AndijonHomeSotish.check)
 async def check(message: types.Message, state: FSMContext):
@@ -629,7 +629,7 @@ async def check(message: types.Message, state: FSMContext):
 
             for file_id in photos[1:]:
                 media_group.attach_photo(f"{file_id}")
-            
+
             await bot.send_media_group(chat_id=channel_id, media=media_group)
             await bot.send_message(chat_id=chat_id, text=success_text, reply_markup=start)
             await state.finish()
