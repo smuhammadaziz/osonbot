@@ -486,23 +486,26 @@ async def umumiyMaydon(message: types.Message, state: FSMContext):
     check_text = "Маълумотлар тўғрилигини тасдиқласангиз,  эълонни каналга жойланг"
 
     if data['qoshimchaMalumot'] == "⏭️ Кейингиси" and data['telNumberTwo'] == "⏭️ Кейингиси":
-        data3 = "🔶 Умумий майдон: " + data['umumiyMaydon'] + "m²" + "\n"
-        data4 = "🔶 Хоналар сони: " + data['xonalar'] + " та" + "\n"
-        data5 = "🔶 Қавати: " + data['qavat'] + "-қават" + "\n"
-        data6 = "🔶 Неча қаватли: " + data['qavatlik'] + "-қаватли" + "\n"
-        data7 = "🔶 Ремонти: " + data['remont'] + "\n"
-        data8 = "🔶 Жиҳозлари: " + data['jihozlar'] + "\n"
-        data9 = "🔶 "
+        data3 = "🔷 Умумий майдон: " + data['umumiyMaydon'] + "-сотих" + "\n"
+        data4 = "🔷 Хоналар сони: " + data['xonalar'] + " та" + "\n"
+        oshxona = "🔷 Ошхонаси: " + data['oshxona'] + "\n"
+        hammom = "🔷 Ҳаммоми: " + data['hammom'] + "\n"
+        data6 = "🔷 Неча қаватли: " + data['qavat'] + "-қаватли уй" + "\n"
+        data7 = "🔷 Ремонти: " + data['remont'] + "\n"
+        data8 = "🔷 Жиҳозлари: " + data['jihozlar'] + "\n"
+        data9 = "🔷 "
         gaz = data['gaz']
         svet = data['svet']
         suv = data['suv']
+        kanal = data['kanal']
         data10 = "бор \n\n"
-        data12 = "💵 Нархи: " + data['narxi'] + data['valyuta'] + "\n\n"
+        data12 = "💰 Нархи: " + data['narxi'] + data['valyuta'] + "\n\n"
         data13 = "📌 Манзил: " + data['manzil'] + "\n"
         data14 = "📌 Мўлжал:  " + data['moljal'] + "\n\n"
         data15 = "☎️ Тел: " + data['telNumberOne'] + "\n\n"
 
-        result = [data1, data2, data3, data4, data5, data6, data7, data8, data9, gaz, svet, suv, data10,
+        result = [data1, data2, data3, data4, oshxona, hammom, data6, data7, data8, data9, gaz, svet, suv, kanal,
+                  data10,
                   data12, data13, data14, data15]
 
         array = []
@@ -525,24 +528,27 @@ async def umumiyMaydon(message: types.Message, state: FSMContext):
         await bot.send_message(chat_id=chat_id, text=check_text, reply_markup=checkbtn)
         await QoraqalpoqHomeSotishHovli.next()
     elif data['qoshimchaMalumot'] == "⏭️ Кейингиси":
-        data3 = "🔶 Умумий майдон: " + data['umumiyMaydon'] + "m²" + "\n"
-        data4 = "🔶 Хоналар сони: " + data['xonalar'] + " та" + "\n"
-        data5 = "🔶 Қавати: " + data['qavat'] + "-қават" + "\n"
-        data6 = "🔶 Неча қаватли: " + data['qavatlik'] + "-қаватли" + "\n"
-        data7 = "🔶 Ремонти: " + data['remont'] + "\n"
-        data8 = "🔶 Жиҳозлари: " + data['jihozlar'] + "\n"
-        data9 = "🔶 "
+        data3 = "🔷 Умумий майдон: " + data['umumiyMaydon'] + "-сотих" + "\n"
+        data4 = "🔷 Хоналар сони: " + data['xonalar'] + " та" + "\n"
+        oshxona = "🔷 Ошхонаси: " + data['oshxona'] + "\n"
+        hammom = "🔷 Ҳаммоми: " + data['hammom'] + "\n"
+        data6 = "🔷 Неча қаватли: " + data['qavat'] + "-қаватли уй" + "\n"
+        data7 = "🔷 Ремонти: " + data['remont'] + "\n"
+        data8 = "🔷 Жиҳозлари: " + data['jihozlar'] + "\n"
+        data9 = "🔷 "
         gaz = data['gaz']
         svet = data['svet']
         suv = data['suv']
+        kanal = data['kanal']
         data10 = "бор \n\n"
-        data12 = "💵 Нархи: " + data['narxi'] + data['valyuta'] + "\n\n"
+        data12 = "💰 Нархи: " + data['narxi'] + data['valyuta'] + "\n\n"
         data13 = "📌 Манзил: " + data['manzil'] + "\n"
         data14 = "📌 Мўлжал:  " + data['moljal'] + "\n\n"
         data15 = "☎️ Тел: " + data['telNumberOne'] + "\n"
         data16 = "☎️ Тел: " + data['telNumberTwo'] + "\n\n"
 
-        result = [data1, data2, data3, data4, data5, data6, data7, data8, data9, gaz, svet, suv, data10,
+        result = [data1, data2, data3, data4, oshxona, hammom, data6, data7, data8, data9, gaz, svet, suv, kanal,
+                  data10,
                   data12, data13, data14, data15, data16]
 
         array = []
@@ -566,24 +572,27 @@ async def umumiyMaydon(message: types.Message, state: FSMContext):
         await QoraqalpoqHomeSotishHovli.next()
 
     elif data['telNumberTwo'] == "⏭️ Кейингиси":
-        data3 = "🔶 Умумий майдон: " + data['umumiyMaydon'] + "m²" + "\n"
-        data4 = "🔶 Хоналар сони: " + data['xonalar'] + " та" + "\n"
-        data5 = "🔶 Қавати: " + data['qavat'] + "-қават" + "\n"
-        data6 = "🔶 Неча қаватли: " + data['qavatlik'] + "-қаватли" + "\n"
-        data7 = "🔶 Ремонти: " + data['remont'] + "\n"
-        data8 = "🔶 Жиҳозлари: " + data['jihozlar'] + "\n"
-        data9 = "🔶 "
+        data3 = "🔷 Умумий майдон: " + data['umumiyMaydon'] + "-сотих" + "\n"
+        data4 = "🔷 Хоналар сони: " + data['xonalar'] + " та" + "\n"
+        oshxona = "🔷 Ошхонаси: " + data['oshxona'] + "\n"
+        hammom = "🔷 Ҳаммоми: " + data['hammom'] + "\n"
+        data6 = "🔷 Неча қаватли: " + data['qavat'] + "-қаватли уй" + "\n"
+        data7 = "🔷 Ремонти: " + data['remont'] + "\n"
+        data8 = "🔷 Жиҳозлари: " + data['jihozlar'] + "\n"
+        data9 = "🔷 "
         gaz = data['gaz']
         svet = data['svet']
         suv = data['suv']
+        kanal = data['kanal']
         data10 = "бор \n"
-        data11 = "🔶 Қўшимча маълумот: " + data['qoshimchaMalumot'] + "\n\n"
-        data12 = "💵 Нархи: " + data['narxi'] + data['valyuta'] + "\n\n"
+        data11 = "🔷 Қўшимча маълумот: " + data['qoshimchaMalumot'] + "\n\n"
+        data12 = "💰 Нархи: " + data['narxi'] + data['valyuta'] + "\n\n"
         data13 = "📌 Манзил: " + data['manzil'] + "\n"
         data14 = "📌 Мўлжал:  " + data['moljal'] + "\n\n"
         data15 = "☎️ Тел: " + data['telNumberOne'] + "\n\n"
 
-        result = [data1, data2, data3, data4, data5, data6, data7, data8, data9, gaz, svet, suv, data10,
+        result = [data1, data2, data3, data4, oshxona, hammom, data6, data7, data8, data9, gaz, svet, suv, kanal,
+                  data10,
                   data11, data12, data13, data14, data15]
 
         array = []
@@ -607,25 +616,28 @@ async def umumiyMaydon(message: types.Message, state: FSMContext):
         await QoraqalpoqHomeSotishHovli.next()
 
     else:
-        data3 = "🔶 Умумий майдон: " + data['umumiyMaydon'] + "m²" + "\n"
-        data4 = "🔶 Хоналар сони: " + data['xonalar'] + " та" + "\n"
-        data5 = "🔶 Қавати: " + data['qavat'] + "-қават" + "\n"
-        data6 = "🔶 Неча қаватли: " + data['qavatlik'] + "-қаватли" + "\n"
-        data7 = "🔶 Ремонти: " + data['remont'] + "\n"
-        data8 = "🔶 Жиҳозлари: " + data['jihozlar'] + "\n"
-        data9 = "🔶 "
+        data3 = "🔷 Умумий майдон: " + data['umumiyMaydon'] + "-сотих" + "\n"
+        data4 = "🔷 Хоналар сони: " + data['xonalar'] + " та" + "\n"
+        oshxona = "🔷 Ошхонаси: " + data['oshxona'] + "\n"
+        hammom = "🔷 Ҳаммоми: " + data['hammom'] + "\n"
+        data6 = "🔷 Неча қаватли: " + data['qavat'] + "-қаватли уй" + "\n"
+        data7 = "🔷 Ремонти: " + data['remont'] + "\n"
+        data8 = "🔷 Жиҳозлари: " + data['jihozlar'] + "\n"
+        data9 = "🔷 "
         gaz = data['gaz']
         svet = data['svet']
         suv = data['suv']
+        kanal = data['kanal']
         data10 = "бор \n"
-        data11 = "🔶 Қўшимча маълумот: " + data['qoshimchaMalumot'] + "\n\n"
-        data12 = "💵 Нархи: " + data['narxi'] + data['valyuta'] + "\n\n"
+        data11 = "🔷 Қўшимча маълумот: " + data['qoshimchaMalumot'] + "\n\n"
+        data12 = "💰 Нархи: " + data['narxi'] + data['valyuta'] + "\n\n"
         data13 = "📌 Манзил: " + data['manzil'] + "\n"
         data14 = "📌 Мўлжал:  " + data['moljal'] + "\n\n"
         data15 = "☎️ Тел: " + data['telNumberOne'] + "\n"
         data16 = "☎️ Тел: " + data['telNumberTwo'] + "\n\n"
 
-        result = [data1, data2, data3, data4, data5, data6, data7, data8, data9, gaz, svet, suv, data10,
+        result = [data1, data2, data3, data4, oshxona, hammom, data6, data7, data8, data9, gaz, svet, suv, kanal,
+                  data10,
                   data11, data12, data13, data14, data15, data16]
 
         array = []
