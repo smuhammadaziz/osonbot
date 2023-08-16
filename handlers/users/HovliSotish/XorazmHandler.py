@@ -86,7 +86,7 @@ async def kvartira(callback_query: types.CallbackQuery, state: FSMContext):
     await XorazmHomeSotishHovli.next()
 
 
-@dp.callback_query_handler(text='yoq', state=XorazmHomeSotishHovli.jihozlar, chat_type="private")
+@dp.callback_query_handler(text='yoq', state=XorazmHomeSotishHovli.oshxona, chat_type="private")
 async def kvartira(callback_query: types.CallbackQuery, state: FSMContext):
     text = "йўқ"
     await callback_query.answer("Pressed")
