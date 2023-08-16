@@ -1,17 +1,17 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-button = ReplyKeyboardMarkup(resize_keyboard=True,
+button = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True,
                              keyboard=[
                                  [KeyboardButton(text="🏡 Уй-жой Бозори")],
                              ])
 
-start = ReplyKeyboardMarkup(resize_keyboard=True, row_width=4,
+start = ReplyKeyboardMarkup(resize_keyboard=True, row_width=4, one_time_keyboard=True,
                              keyboard=[
                                  [KeyboardButton(text="START")],
                              ])
 
 
-checkbtn = ReplyKeyboardMarkup(resize_keyboard=True, row_width=2,
+checkbtn = ReplyKeyboardMarkup(resize_keyboard=True, row_width=2,one_time_keyboard=True,
                                keyboard=[
                                    [KeyboardButton(text="✅ Эълонни жойлаш"),
                                     KeyboardButton(text="❌ Эълонни қайтадан ёзиш")],
@@ -22,7 +22,7 @@ newbutton = ReplyKeyboardMarkup(resize_keyboard=True,
                                     [KeyboardButton(text="🛑 Bekor qilish")]
                                 ])
 
-otkazishButton = ReplyKeyboardMarkup(resize_keyboard=True,
+otkazishButton = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True,
                                      keyboard=[
                                          [KeyboardButton(text="⏭️ Кейингиси")],
                                      ])
