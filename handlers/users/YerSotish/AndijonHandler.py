@@ -505,7 +505,7 @@ async def check(message: types.Message, state: FSMContext):
     channel_id = -1001354536408
 
     data1 = "#Андижон__Вилояти \n"
-    data2 = "#Квартира__Сотилади \n\n"
+    data2 = "#Ер_Участка__Сотилади \n\n"
 
     bot_link = "ЭЪЛОН БЕРИШ"
 

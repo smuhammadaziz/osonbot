@@ -2,17 +2,32 @@ from aiogram import types
 from aiogram.dispatcher.filters.builtin import CommandStart
 from keyboards.default.JobButton import button
 from aiogram.dispatcher.filters import Text
-from loader import dp
+from loader import dp, bot
 
 from aiogram.dispatcher.filters.state import State
 from aiogram.dispatcher import FSMContext
+
+from keyboards.inline.HomeButton import start_button
 
 start_word = "START"
 
 
 @dp.message_handler(CommandStart())
 async def bot_start(message: types.Message):
+    pinned_message = await message.answer(text="Elon berish", reply_markup=start_button)
+
+    await bot.delete_message(chat_id=message.chat.id, message_id=message.message_id)
+
+    await bot.pin_chat_message(chat_id=message.chat.id, message_id=pinned_message.message_id)
+
     await message.answer("<b> Категорияни танланг  </b>", reply_markup=button, parse_mode="HTML")
+
+
+@dp.callback_query_handler(text="botstarter", chat_type="private", state="*")
+async def starter_bot(call: types.CallbackQuery, state: FSMContext):
+    await call.answer("Bot start")
+    await state.finish()
+    await call.message.answer("<b> Категорияни танланг  </b>", reply_markup=button, parse_mode="HTML")
 
 
 @dp.message_handler(Text(startswith="START"), state="*")

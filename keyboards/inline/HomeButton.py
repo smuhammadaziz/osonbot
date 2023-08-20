@@ -192,3 +192,9 @@ link_button = InlineKeyboardMarkup(resize_keyboard=True, row_width=2,
                                    inline_keyboard=[
                                        [InlineKeyboardButton(text="ЭЪЛОН БЕРИШ", url="https://t.me/OsonBozorBot")]
                                    ])
+
+start_button = InlineKeyboardMarkup(resize_keyboard=True, row_width=2,
+                                    inline_keyboard=[
+                                        [InlineKeyboardButton(text="ЭЪЛОН БЕРИШ",
+                                                              callback_data="botstarter")]
+                                    ])
