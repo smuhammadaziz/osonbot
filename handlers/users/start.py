@@ -14,7 +14,7 @@ start_word = "START"
 
 @dp.message_handler(CommandStart())
 async def bot_start(message: types.Message):
-    pinned_message = await message.answer(text="Elon berish", reply_markup=start_button)
+    pinned_message = await message.answer(text="ЭЪЛОН БЕРИШ", reply_markup=start_button)
 
     await bot.delete_message(chat_id=message.chat.id, message_id=message.message_id)
 
@@ -25,7 +25,7 @@ async def bot_start(message: types.Message):
 
 @dp.callback_query_handler(text="botstarter", chat_type="private", state="*")
 async def starter_bot(call: types.CallbackQuery, state: FSMContext):
-    await call.answer("Bot start")
+    await call.answer("Bot ishga tushdi")
     await state.finish()
     await call.message.answer("<b> Категорияни танланг  </b>", reply_markup=button, parse_mode="HTML")
 
