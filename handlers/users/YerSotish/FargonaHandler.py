@@ -38,7 +38,7 @@ async def starter(message: types.Message, album: List[types.Message], state: FSM
     await FargonaYerSotish.next()
 
 
-@dp.message_handler(lambda message: not message.text.isdigit(), state=FargonaYerSotish.umumiyMaydon)
+@dp.message_handler(lambda message: not message.text.replace('.', '').isdigit(), state=FargonaYerSotish.umumiyMaydon)
 async def check_umumiy(message: types.Message):
     await message.reply("❗ Фақат рақамда ёзинг")
 
