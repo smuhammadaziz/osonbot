@@ -276,9 +276,13 @@ async def check_umumiy(message: types.Message):
 
 @dp.message_handler(state=ToshkentShYerSotish.narxi)
 async def kvartira_narxi(message: types.Message, state: FSMContext):
-    text = message.text
+    msg = int(message.text)
+
+    number = "{:,}".format(msg).replace(",", ".")
+
+
     await state.update_data({
-        "narxi": text
+        "narxi": number
     })
     await message.answer(text="Манзилни ёзинг: ")
 
