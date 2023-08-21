@@ -346,7 +346,6 @@ async def kvartira_narxi(message: types.Message, state: FSMContext):
         "narxi": text
     })
 
-    print(text)
     
     await message.answer(text="Манзилни ёзинг: ")
 
@@ -411,7 +410,7 @@ async def umumiyMaydon(message: types.Message, state: FSMContext):
     data1 = "#Андижон__Вилояти \n"
     data2 = "#Квартира__Сотилади \n\n"
 
-    price = data['narxi']
+    price = int(data['narxi'])
 
     print(price)
     formatted_number = "{:,}".format(price).replace(",", ".")
