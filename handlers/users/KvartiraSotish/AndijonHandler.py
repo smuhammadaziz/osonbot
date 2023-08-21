@@ -341,9 +341,13 @@ async def check_umumiy(message: types.Message):
 
 @dp.message_handler(state=AndijonHomeSotish.narxi)
 async def kvartira_narxi(message: types.Message, state: FSMContext):
-    text = message.text
+    msg = int(message.text)
+
+    number = "{:,}".format(msg).replace(",", ".")
+
+
     await state.update_data({
-        "narxi": text
+        "narxi": number
     })
 
     
@@ -409,11 +413,6 @@ async def umumiyMaydon(message: types.Message, state: FSMContext):
 
     data1 = "#Андижон__Вилояти \n"
     data2 = "#Квартира__Сотилади \n\n"
-
-    price = int(data['narxi'])
-
-    print(price)
-    formatted_number = "{:,}".format(price).replace(",", ".")
     
 
     check_text = "Маълумотлар тўғрилигини тасдиқласангиз,  эълонни каналга жойланг"
@@ -430,7 +429,7 @@ async def umumiyMaydon(message: types.Message, state: FSMContext):
         svet = data['svet']
         suv = data['suv']
         data10 = "бор \n\n"
-        data12 = "💵 Нархи: " + formatted_number + data['valyuta'] + "\n\n"
+        data12 = "💵 Нархи: " + data['narxi'] + data['valyuta'] + "\n\n"
         data13 = "📌 Манзил: " + data['manzil'] + "\n"
         data14 = "📌 Мўлжал:  " + data['moljal'] + "\n\n"
         data15 = "☎️ Тел: " + data['telNumberOne'] + "\n\n"
@@ -469,7 +468,7 @@ async def umumiyMaydon(message: types.Message, state: FSMContext):
         svet = data['svet']
         suv = data['suv']
         data10 = "бор \n\n"
-        data12 = "💵 Нархи: " + formatted_number + data['valyuta'] + "\n\n"
+        data12 = "💵 Нархи: " + data['narxi'] + data['valyuta'] + "\n\n"
         data13 = "📌 Манзил: " + data['manzil'] + "\n"
         data14 = "📌 Мўлжал:  " + data['moljal'] + "\n\n"
         data15 = "☎️ Тел: " + data['telNumberOne'] + "\n"
@@ -511,7 +510,7 @@ async def umumiyMaydon(message: types.Message, state: FSMContext):
         suv = data['suv']
         data10 = "бор \n"
         data11 = "🔶 Қўшимча маълумот: " + data['qoshimchaMalumot'] + "\n\n"
-        data12 = "💵 Нархи: " + formatted_number + data['valyuta'] + "\n\n"
+        data12 = "💵 Нархи: " + data['narxi'] + data['valyuta'] + "\n\n"
         data13 = "📌 Манзил: " + data['manzil'] + "\n"
         data14 = "📌 Мўлжал:  " + data['moljal'] + "\n\n"
         data15 = "☎️ Тел: " + data['telNumberOne'] + "\n\n"
@@ -552,7 +551,7 @@ async def umumiyMaydon(message: types.Message, state: FSMContext):
         suv = data['suv']
         data10 = "бор \n"
         data11 = "🔶 Қўшимча маълумот: " + data['qoshimchaMalumot'] + "\n\n"
-        data12 = "💵 Нархи: " + formatted_number + data['valyuta'] + "\n\n"
+        data12 = "💵 Нархи: " + data['narxi'] + data['valyuta'] + "\n\n"
         data13 = "📌 Манзил: " + data['manzil'] + "\n"
         data14 = "📌 Мўлжал:  " + data['moljal'] + "\n\n"
         data15 = "☎️ Тел: " + data['telNumberOne'] + "\n"
@@ -592,9 +591,6 @@ async def check(message: types.Message, state: FSMContext):
     data1 = "#Андижон__Вилояти \n"
     data2 = "#Квартира__Сотилади \n\n"
 
-    price = data['narxi']
-    formatted_number = "{:,}".format(price).replace(",", ".")
-
     bot_link = "ЭЪЛОН БЕРИШ"
 
     success_text = "✅ Эълон каналга жойланди!"
@@ -617,7 +613,7 @@ async def check(message: types.Message, state: FSMContext):
             svet = data['svet']
             suv = data['suv']
             data10 = "бор \n\n"
-            data12 = "💵 Нархи: " + formatted_number + data['valyuta'] + "\n\n"
+            data12 = "💵 Нархи: " + data['narxi'] + data['valyuta'] + "\n\n"
             data13 = "📌 Манзил: " + data['manzil'] + "\n"
             data14 = "📌 Мўлжал:  " + data['moljal'] + "\n\n"
             data15 = "☎️ Тел: " + data['telNumberOne'] + "\n\n"
@@ -657,7 +653,7 @@ async def check(message: types.Message, state: FSMContext):
             svet = data['svet']
             suv = data['suv']
             data10 = "бор \n\n"
-            data12 = "💵 Нархи: " + formatted_number + data['valyuta'] + "\n\n"
+            data12 = "💵 Нархи: " + data['narxi'] + data['valyuta'] + "\n\n"
             data13 = "📌 Манзил: " + data['manzil'] + "\n"
             data14 = "📌 Мўлжал:  " + data['moljal'] + "\n\n"
             data15 = "☎️ Тел: " + data['telNumberOne'] + "\n"
@@ -698,7 +694,7 @@ async def check(message: types.Message, state: FSMContext):
             suv = data['suv']
             data10 = "бор \n"
             data11 = "🔶 Қўшимча маълумот: " + data['qoshimchaMalumot'] + "\n\n"
-            data12 = "💵 Нархи: " + formatted_number + data['valyuta'] + "\n\n"
+            data12 = "💵 Нархи: " + data['narxi'] + data['valyuta'] + "\n\n"
             data13 = "📌 Манзил: " + data['manzil'] + "\n"
             data14 = "📌 Мўлжал:  " + data['moljal'] + "\n\n"
             data15 = "☎️ Тел: " + data['telNumberOne'] + "\n\n"
@@ -738,7 +734,7 @@ async def check(message: types.Message, state: FSMContext):
             suv = data['suv']
             data10 = "бор \n"
             data11 = "🔶 Қўшимча маълумот: " + data['qoshimchaMalumot'] + "\n\n"
-            data12 = "💵 Нархи: " + formatted_number + data['valyuta'] + "\n\n"
+            data12 = "💵 Нархи: " + data['narxi'] + data['valyuta'] + "\n\n"
             data13 = "📌 Манзил: " + data['manzil'] + "\n"
             data14 = "📌 Мўлжал:  " + data['moljal'] + "\n\n"
             data15 = "☎️ Тел: " + data['telNumberOne'] + "\n"

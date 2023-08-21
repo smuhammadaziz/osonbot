@@ -341,7 +341,7 @@ async def check_umumiy(message: types.Message):
 
 @dp.message_handler(state=SurxonHomeSotish.narxi)
 async def kvartira_narxi(message: types.Message, state: FSMContext):
-    msg = message.text
+    msg = int(message.text)
 
     number = "{:,}".format(msg).replace(",", ".")
 
