@@ -33,7 +33,7 @@ async def starter(message: types.Message, album: List[types.Message], state: FSM
     await state.update_data({
         "images": file_ids
     })
-
+ 
     await message.answer("<b> Умумий майдонини ёзинг </b>", parse_mode="HTML")
     await XorazmYerSotish.next()
 
