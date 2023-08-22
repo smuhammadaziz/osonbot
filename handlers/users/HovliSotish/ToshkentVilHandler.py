@@ -17,7 +17,7 @@ mode = "Markdown"
 @dp.callback_query_handler(text="toshvilhovli", state=None, chat_type="private")
 async def first(callback_query: types.CallbackQuery):
     await callback_query.answer("Kvartira tanlandi")
-    await callback_query.message.answer("<b> Расмларни жойлаш (10 - тагача) </b>", parse_mode="HTML")
+    await callback_query.message.answer("<b> Расмларни жойлаш (2 - 10  тагача) </b>", parse_mode="HTML")
     await ToshkentVilHomeSotishHovli.images.set()
 
 
