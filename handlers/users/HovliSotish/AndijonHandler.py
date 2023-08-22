@@ -38,7 +38,7 @@ async def starter(message: types.Message, album: List[types.Message], state: FSM
     await AndijonHomeSotishHovli.next()
 
 
-@dp.message_handler(lambda message: not message.text.replace('.', '').isdigit(), state=AndijonHomeSotishHovli.umumiyMaydon)
+@dp.message_handler(lambda message: not message.text.replace('.', ',').isdigit(), state=AndijonHomeSotishHovli.umumiyMaydon)
 async def check_umumiy(message: types.Message):
     await message.reply("❗ Фақат рақамда ёзинг")
 
