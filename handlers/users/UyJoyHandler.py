@@ -18,7 +18,7 @@ from config import andijonLink, buxoroLink, fargonaLink, jizzaxLink, namanganLin
 mode = "Markdown"
 
 
-@dp.message_handler(Text(startswith="🏡 Уй-жой"))
+@dp.message_handler(Text(startswith="УЙ-ЖОЙ БОЗОРИ"))
 async def first(message: types.Message):
     await message.answer("<b> Ҳудудни танланг: </b>", reply_markup=allRegionsKvartira)
 
