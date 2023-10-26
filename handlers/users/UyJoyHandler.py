@@ -199,8 +199,8 @@ async def check(call: types.CallbackQuery):
 
 
 # =======================================8========================================
-@dp.callback_query_handler(text="qoraqalpoq", chat_type="private")
-async def kvartirasotish(call: types.CallbackQuery):
+@dp.callback_query_handler(text="qoraqalpoqosh", chat_type="private")
+async def qoroqalpoqfunc(call: types.CallbackQuery):
     get_chat = await bot.get_chat_member(f"@{qoraqalpoqLink}", call.message.chat.id)
 
     if check_qoraqalpoq(get_chat):
@@ -213,7 +213,7 @@ async def kvartirasotish(call: types.CallbackQuery):
 
 
 @dp.callback_query_handler(text="check_qoraqalpoq", chat_type="private")
-async def check(call: types.CallbackQuery):
+async def checkqora(call: types.CallbackQuery):
     get_chat = await bot.get_chat_member(f"@{qoraqalpoqLink}", call.message.chat.id)
     if check_qoraqalpoq(get_chat):
         await call.answer("Qoraqalpog'iston tanlandi")

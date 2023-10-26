@@ -17,7 +17,7 @@ allRegionsKvartira = InlineKeyboardMarkup(resize_keyboard=True, row_width=2,
                                                InlineKeyboardButton(text="Жиззах", callback_data="jizzax")],
                                               [InlineKeyboardButton(text="Хоразм", callback_data="xorazm"),
                                                InlineKeyboardButton(text="Қорақалпоғистон",
-                                                                    callback_data="qoraqalpoq")],
+                                                                    callback_data="qoraqalpoqosh")],
                                               [InlineKeyboardButton(text="⬅️ Ортга",
                                                                     callback_data="hometypeortgabutton")]
                                           ])
