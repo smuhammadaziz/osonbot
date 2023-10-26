@@ -212,7 +212,7 @@ async def kvartirasotish(call: types.CallbackQuery):
                                parse_mode=mode, reply_markup=button_qoraqalpoq())
 
 
-@dp.callback_query_handler(text="qoraqalpoqLink", chat_type="private")
+@dp.callback_query_handler(text="check_qoraqalpoq", chat_type="private")
 async def check(call: types.CallbackQuery):
     get_chat = await bot.get_chat_member(f"@{qoraqalpoqLink}", call.message.chat.id)
     if check_qoraqalpoq(get_chat):
