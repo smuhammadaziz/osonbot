@@ -33,29 +33,10 @@ async def kvartirasotish(call: types.CallbackQuery):
 
 
 # =======================================1=======================================
-
 @dp.callback_query_handler(text="andijon", chat_type="private")
 async def kvartirasotish(call: types.CallbackQuery):
-    get_chat = await bot.get_chat_member(f"@{andijonLink}", call.message.chat.id)
-
-    if check_andijon(get_chat):
-        await call.answer("Andijon tanlandi")
-        await call.message.answer("<b> Уй-жой турини танланг!  </b>", reply_markup=andijonHome, parse_mode="HTML")
-    else:
-        await bot.send_message(call.message.chat.id,
-                               "Ботдан фойдаланиш учун каналга уланинг.",
-                               parse_mode=mode, reply_markup=button_andijon())
-
-
-@dp.callback_query_handler(text="check_andijon", chat_type="private")
-async def check(call: types.CallbackQuery):
-    get_chat = await bot.get_chat_member(f"@{andijonLink}", call.message.chat.id)
-    if check_andijon(get_chat):
-        await call.answer("Andijon tanlandi")
-        await call.message.answer("<b> Уй-жой турини танланг!  </b>", reply_markup=andijonHome, parse_mode="HTML")
-    else:
-        await call.answer("Каналга уланмадингиз ! ", show_alert=True)
-
+    await call.answer("Andijon tanlandi")
+    await call.message.answer("<b> Уй-жой турини танланг!  </b>", reply_markup=andijonHome, parse_mode="HTML")
 
 # =======================================2========================================
 @dp.callback_query_handler(text="buxoro", chat_type="private")
@@ -282,50 +263,14 @@ async def check(call: types.CallbackQuery):
 # =======================================12========================================
 @dp.callback_query_handler(text="toshkentsh", chat_type="private")
 async def kvartirasotish(call: types.CallbackQuery):
-    get_chat = await bot.get_chat_member(f"@{toshkentShUyBozorLink}", call.message.chat.id)
-
-    if check_toshkentShUyBozor(get_chat):
-        await call.answer("Toshkent Shahar tanlandi")
-        await call.message.answer("<b> Уй-жой турини танланг!  </b>", reply_markup=toshkentShHome, parse_mode="HTML")
-    else:
-        await bot.send_message(call.message.chat.id,
-                               "Ботдан фойдаланиш учун каналга уланинг.",
-                               parse_mode=mode, reply_markup=button_toshkentShUyBozor())
-
-
-@dp.callback_query_handler(text="check_toshkentShUyBozor", chat_type="private")
-async def check(call: types.CallbackQuery):
-    get_chat = await bot.get_chat_member(f"@{toshkentShUyBozorLink}", call.message.chat.id)
-    if check_toshkentShUyBozor(get_chat):
-        await call.answer("Toshkent Shahar tanlandi")
-        await call.message.answer("<b> Уй-жой турини танланг! </b>", parse_mode="HTML", reply_markup=toshkentShHome)
-    else:
-        await call.answer("Каналга уланмадингиз ! ", show_alert=True)
-
+    await call.answer("Toshkent Shahar tanlandi")
+    await call.message.answer("<b> Уй-жой турини танланг!  </b>", reply_markup=toshkentShHome, parse_mode="HTML")
 
 # =======================================13========================================
 @dp.callback_query_handler(text="toshkentvil", chat_type="private")
 async def kvartirasotish(call: types.CallbackQuery):
-    get_chat = await bot.get_chat_member(f"@{toshkentVilLink}", call.message.chat.id)
-
-    if check_toshkentVil(get_chat):
-        await call.answer("Toshkent Viloyati tanlandi")
-        await call.message.answer("<b> Уй-жой турини танланг!  </b>", reply_markup=toshkentVilHome, parse_mode="HTML")
-    else:
-        await bot.send_message(call.message.chat.id,
-                               "Ботдан фойдаланиш учун каналга уланинг.",
-                               parse_mode=mode, reply_markup=button_toshkentVil())
-
-
-@dp.callback_query_handler(text="check_toshkentVil", chat_type="private")
-async def check(call: types.CallbackQuery):
-    get_chat = await bot.get_chat_member(f"@{toshkentVilLink}", call.message.chat.id)
-    if check_toshkentVil(get_chat):
-        await call.answer("Toshkent Viloyati tanlandi")
-        await call.message.answer("<b> Уй-жой турини танланг! </b>", parse_mode="HTML", reply_markup=toshkentVilHome)
-    else:
-        await call.answer("Каналга уланмадингиз ! ", show_alert=True)
-
+    await call.answer("Toshkent Viloyati tanlandi")
+    await call.message.answer("<b> Уй-жой турини танланг!  </b>", reply_markup=toshkentVilHome, parse_mode="HTML")
 
 # =======================================14========================================
 @dp.callback_query_handler(text="xorazm", chat_type="private")
