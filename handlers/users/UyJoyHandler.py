@@ -23,10 +23,13 @@ async def first(message: types.Message):
     await message.answer("<b> Ҳудудни танланг: </b>", reply_markup=allRegionsKvartira)
 
 
+
 @dp.callback_query_handler(text="hometypeortgabutton", chat_type="private")
 async def kvartirasotish(call: types.CallbackQuery):
     await call.answer("Категорияни танланг")
     await call.message.answer("<b> Категорияни танланг  </b>", reply_markup=button, parse_mode="HTML")
+
+
 
 
 # =======================================1=======================================
@@ -200,28 +203,9 @@ async def check(call: types.CallbackQuery):
 
 # =======================================8========================================
 @dp.callback_query_handler(text="qoraqalpoqosh", chat_type="private")
-async def qoroqalpoqfunc(call: types.CallbackQuery):
-    get_chat = await bot.get_chat_member(f"@{qoraqalpoqLink}", call.message.chat.id)
-
-    if check_qoraqalpoq(get_chat):
-        await call.answer("Qoraqalpog'iston tanlandi")
-        await call.message.answer("<b> Уй-жой турини танланг!  </b>", reply_markup=qoraqalpoqHome, parse_mode="HTML")
-    else:
-        await bot.send_message(call.message.chat.id,
-                               "Ботдан фойдаланиш учун каналга уланинг.",
-                               parse_mode=mode, reply_markup=button_qoraqalpoq())
-
-
-@dp.callback_query_handler(text="check_qoraqalpoq", chat_type="private")
-async def checkqora(call: types.CallbackQuery):
-    get_chat = await bot.get_chat_member(f"@{qoraqalpoqLink}", call.message.chat.id)
-    if check_qoraqalpoq(get_chat):
-        await call.answer("Qoraqalpog'iston tanlandi")
-        await call.message.answer("<b> Уй-жой турини танланг! </b>", parse_mode="HTML", reply_markup=qoraqalpoqHome)
-
-    else:
-        await call.answer("Каналга уланмадингиз ! ", show_alert=True)
-
+async def kvartirasotish(call: types.CallbackQuery):
+    await call.answer("Qoraqalpog'iston tanlandi")
+    await call.message.answer("<b> Уй-жой турини танланг!  </b>", reply_markup=qoraqalpoqHome, parse_mode="HTML")
 
 # =======================================9========================================
 @dp.callback_query_handler(text="samarqand", chat_type="private")
