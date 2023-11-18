@@ -18,9 +18,29 @@ allRegionsKvartira = InlineKeyboardMarkup(resize_keyboard=True, row_width=2,
                                               [InlineKeyboardButton(text="Хоразм", callback_data="xorazm"),
                                                InlineKeyboardButton(text="Қорақалпоғистон",
                                                                     callback_data="qoraqalpoqosh")],
-                                              [InlineKeyboardButton(text="⬅️ Ортга",
-                                                                    callback_data="hometypeortgabutton")]
                                           ])
+
+# allRegionsKvartira = InlineKeyboardMarkup(resize_keyboard=True, row_width=2,
+#                                           inline_keyboard=[
+#                                               [InlineKeyboardButton(text="Тошкент шаҳар", callback_data="toshkentsh"),
+#                                                InlineKeyboardButton(text="Тошкент вилояти",
+#                                                                     callback_data="toshkentvil")],
+#                                               [InlineKeyboardButton(text="Андижон", callback_data="andijon"),
+#                                                InlineKeyboardButton(text="Наманган", callback_data="namangan")],
+#                                               [InlineKeyboardButton(text="Фарғона", callback_data="fargona"),
+#                                                InlineKeyboardButton(text="Самарқанд", callback_data="samarqand")],
+#                                               [InlineKeyboardButton(text="Бухоро", callback_data="buxoro"),
+#                                                InlineKeyboardButton(text="Сирдарё", callback_data="sirdaryo")],
+#                                               [InlineKeyboardButton(text="Қашқадарё", callback_data="qashqadaryo"),
+#                                                InlineKeyboardButton(text="Сурхoндарё", callback_data="surxondaryo")],
+#                                               [InlineKeyboardButton(text="Навоий", callback_data="navoiy"),
+#                                                InlineKeyboardButton(text="Жиззах", callback_data="jizzax")],
+#                                               [InlineKeyboardButton(text="Хоразм", callback_data="xorazm"),
+#                                                InlineKeyboardButton(text="Қорақалпоғистон",
+#                                                                     callback_data="qoraqalpoqosh")],
+#                                               [InlineKeyboardButton(text="⬅️ Ортга",
+#                                                                     callback_data="hometypeortgabutton")]
+#                                           ])
 
 toshkentShHome = InlineKeyboardMarkup(resize_keyboard=True, row_width=2,
                                       inline_keyboard=[
