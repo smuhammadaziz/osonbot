@@ -7,21 +7,8 @@ from keyboards.inline.HomeButton import allRegionsKvartira, toshkentShHome, tosh
     fargonaHome, samarqandHome, buxoroHome, sirdaryoHome, qashqadaryoHome, surxonHome, navoiyHome, jizzaxHome, \
     xorazmHome, qoraqalpoqHome
 from loader import dp, bot
-from check_user import check_andijon, button_andijon, check_buxoro, check_fargona, check_jizzax, check_namangan, \
-    check_navoiy, check_qashqadaryo, check_qoraqalpoq, check_samarqand, check_sirdaryo, check_surxondaryo, \
-    check_toshkentShUyBozor, check_toshkentVil, check_xorazm, button_buxoro, button_fargona, button_jizzax, \
-    button_toshkentShUyBozor, button_namangan, button_navoiy, button_qashqadaryo, button_qoraqalpoq, button_samarqand, \
-    button_sirdaryo, button_surxondaryo, button_toshkentVil, button_xorazm
-from config import andijonLink, buxoroLink, fargonaLink, jizzaxLink, namanganLink, navoiyLink, qashqadaryoLink, \
-    qoraqalpoqLink, samarqandLink, sirdaryoLink, surxondaryoLink, toshkentShUyBozorLink, toshkentVilLink, xorazmLink
 
 mode = "Markdown"
-
-
-@dp.message_handler(Text(startswith="УЙ-ЖОЙ БОЗОРИ"))
-async def first(message: types.Message):
-    await message.answer("<b> Ҳудудни танланг: </b>", reply_markup=allRegionsKvartira)
-
 
 
 @dp.callback_query_handler(text="hometypeortgabutton", chat_type="private")

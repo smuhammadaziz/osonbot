@@ -7,7 +7,7 @@ from loader import dp, bot
 from aiogram.dispatcher.filters.state import State
 from aiogram.dispatcher import FSMContext
 
-from keyboards.inline.HomeButton import start_button
+from keyboards.inline.HomeButton import start_button, allRegionsKvartira
 
 start_word = "START"
 
@@ -20,32 +20,32 @@ async def bot_start(message: types.Message):
 
     await bot.pin_chat_message(chat_id=message.chat.id, message_id=pinned_message.message_id)
 
-    await message.answer("<b> Категорияни танланг  </b>", reply_markup=button, parse_mode="HTML")
+    await message.answer("<b> Ҳудудни танланг:  </b>", reply_markup=allRegionsKvartira, parse_mode="HTML")
 
 
 @dp.callback_query_handler(text="botstarter", chat_type="private", state="*")
 async def starter_bot(call: types.CallbackQuery, state: FSMContext):
     await call.answer("Bot ishga tushdi")
     await state.finish()
-    await call.message.answer("<b> Категорияни танланг  </b>", reply_markup=button, parse_mode="HTML")
+    await call.message.answer("<b> Ҳудудни танланг:  </b>", reply_markup=allRegionsKvartira, parse_mode="HTML")
 
 
 @dp.message_handler(Text(startswith="START"), state="*")
 async def first(message: types.Message, state: FSMContext):
     await state.finish()
-    await message.answer("<b> Категорияни танланг </b>", reply_markup=button, parse_mode="HTML")
+    await message.answer("<b> Ҳудудни танланг:  </b>", reply_markup=allRegionsKvartira, parse_mode="HTML")
 
 
 @dp.message_handler(Text(startswith="start"), state="*")
 async def first(message: types.Message, state: FSMContext):
     await state.finish()
-    await message.answer("<b> Категорияни танланг </b>", reply_markup=button, parse_mode="HTML")
+    await message.answer("<b> Ҳудудни танланг:  </b>", reply_markup=allRegionsKvartira, parse_mode="HTML")
 
 
 @dp.message_handler(Text(startswith="/start"), state="*")
 async def first(message: types.Message, state: FSMContext):
     await state.finish()
-    await message.answer("<b> Категорияни танланг </b>", reply_markup=button, parse_mode="HTML")
+    await message.answer("<b> Ҳудудни танланг:  </b>", reply_markup=allRegionsKvartira, parse_mode="HTML")
 
 
 @dp.message_handler(Text(startswith="/stop"), state="*")
@@ -57,4 +57,6 @@ async def stop(message: types.Message, state: FSMContext):
 @dp.message_handler(Text(startswith="/restart"), state="*")
 async def restart(message: types.Message, state: FSMContext):
     await state.finish()
-    await message.answer("<b> Категорияни танланг </b>", reply_markup=button, parse_mode="HTML")
+    await message.answer("<b> Ҳудудни танланг:  </b>", reply_markup=allRegionsKvartira, parse_mode="HTML")
+
+
