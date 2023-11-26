@@ -1,12 +1,11 @@
-import logging
 from typing import List
 
 from aiogram.bot.bot import types
 from aiogram.dispatcher.dispatcher import FSMContext
 
-from keyboards.default.JobButton import checkbtn, button, start
+from keyboards.default.JobButton import checkbtn, start
 from keyboards.default.JobButton import otkazishButton
-from keyboards.inline.HomeButton import remontButton, jihozlarButton, valyutaButton, borYoq, link_button
+from keyboards.inline.HomeButton import remontButton, jihozlarButton, valyutaButton, borYoq
 from loader import dp, bot
 from states.HovliState.QashqadaryoState import QashqadaryoHomeSotishHovli
 from transliterate import to_cyrillic
@@ -38,7 +37,8 @@ async def starter(message: types.Message, album: List[types.Message], state: FSM
     await QashqadaryoHomeSotishHovli.next()
 
 
-@dp.message_handler(lambda message: not message.text.replace('.', '').replace(',', '').isdigit(), state=QashqadaryoHomeSotishHovli.umumiyMaydon)
+@dp.message_handler(lambda message: not message.text.replace('.', '').replace(',', '').isdigit(),
+                    state=QashqadaryoHomeSotishHovli.umumiyMaydon)
 async def check_umumiy(message: types.Message):
     await message.reply("❗ Фақат рақамда ёзинг")
 
@@ -420,7 +420,6 @@ async def kvartira_narxi(message: types.Message, state: FSMContext):
 
     number = "{:,}".format(msg).replace(",", ".")
 
-
     await state.update_data({
         "narxi": number
     })
@@ -675,9 +674,11 @@ async def check(message: types.Message, state: FSMContext):
     data1 = "#Қашқадарё__Вилояти \n"
     data2 = "#Ҳовли_Уй__Сотилади \n\n"
 
-    bot_link = "ЭЪЛОН БЕРИШ"
-
     success_text = "✅ Эълон каналга жойланди!"
+
+    data20 = "➖➖➖➖➖➖➖➖➖➖➖ \n"
+    data21 = "<a href='https://t.me/demo_bot_2022Bot'><b>        ЭЪЛОН БЕРИШ</b></a>\n"
+    data22 = "➖➖➖➖➖➖➖➖➖➖➖ \n\n"
 
     media_group = types.MediaGroup()
 
@@ -717,9 +718,9 @@ async def check(message: types.Message, state: FSMContext):
                 array.append(item)
 
             stringify = " ".join(array)
-            cyrillic_text = to_cyrillic(stringify)
+            cyrillic_text = to_cyrillic(stringify) + data20 + data21 + data22
 
-            media_group.attach_photo(photos[0], caption=cyrillic_text)
+            media_group.attach_photo(photos[0], caption=cyrillic_text, parse_mode="HTML")
 
             for file_id in photos[1:]:
                 media_group.attach_photo(f"{file_id}")
@@ -761,9 +762,9 @@ async def check(message: types.Message, state: FSMContext):
                 array.append(item)
 
             stringify = " ".join(array)
-            cyrillic_text = to_cyrillic(stringify)
+            cyrillic_text = to_cyrillic(stringify) + data20 + data21 + data22
 
-            media_group.attach_photo(photos[0], caption=cyrillic_text)
+            media_group.attach_photo(photos[0], caption=cyrillic_text, parse_mode="HTML")
 
             for file_id in photos[1:]:
                 media_group.attach_photo(f"{file_id}")
@@ -804,9 +805,9 @@ async def check(message: types.Message, state: FSMContext):
                 array.append(item)
 
             stringify = " ".join(array)
-            cyrillic_text = to_cyrillic(stringify)
+            cyrillic_text = to_cyrillic(stringify) + data20 + data21 + data22
 
-            media_group.attach_photo(photos[0], caption=cyrillic_text)
+            media_group.attach_photo(photos[0], caption=cyrillic_text, parse_mode="HTML")
 
             for file_id in photos[1:]:
                 media_group.attach_photo(f"{file_id}")
@@ -848,9 +849,9 @@ async def check(message: types.Message, state: FSMContext):
                 array.append(item)
 
             stringify = " ".join(array)
-            cyrillic_text = to_cyrillic(stringify)
+            cyrillic_text = to_cyrillic(stringify) + data20 + data21 + data22
 
-            media_group.attach_photo(photos[0], caption=cyrillic_text)
+            media_group.attach_photo(photos[0], caption=cyrillic_text, parse_mode="HTML")
 
             for file_id in photos[1:]:
                 media_group.attach_photo(f"{file_id}")
