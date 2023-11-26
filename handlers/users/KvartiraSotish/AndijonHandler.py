@@ -591,7 +591,7 @@ async def check(message: types.Message, state: FSMContext):
     success_text = "✅ Эълон каналга жойланди!"
 
     data20 = "➖➖➖➖➖➖➖➖➖➖➖ \n"
-    data21 = "<a href='https://t.me/demo_bot_2022Bot'><b>        ЭЪЛОН БЕРИШ</b></a>\n"
+    data21 = "<a href='https://t.me/OsonBozorBot'><b>        ЭЪЛОН БЕРИШ</b></a>\n"
     data22 = "➖➖➖➖➖➖➖➖➖➖➖ \n\n"
 
     media_group = types.MediaGroup()
