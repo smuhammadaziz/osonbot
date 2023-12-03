@@ -51,7 +51,7 @@ async def first(message: types.Message, state: FSMContext):
 @dp.message_handler(Text(startswith="/stop"), state="*")
 async def stop(message: types.Message, state: FSMContext):
     await state.finish()
-    await message.answer("Bot is stopping", reply_markup=button, parse_mode="HTML")
+    await message.answer("Bot is stopping", reply_markup=allRegionsKvartira, parse_mode="HTML")
 
 
 @dp.message_handler(Text(startswith="/restart"), state="*")
@@ -59,4 +59,7 @@ async def restart(message: types.Message, state: FSMContext):
     await state.finish()
     await message.answer("<b> Ҳудудни танланг:  </b>", reply_markup=allRegionsKvartira, parse_mode="HTML")
 
+@dp.message_handler(Text(startswith="⬅️ Ортга"))
+async def ortga(message: types.Message):
+    await message.answer("<b> Ҳудудни танланг: </b>", reply_markup=allRegionsKvartira, parse_mode="HTML")
 

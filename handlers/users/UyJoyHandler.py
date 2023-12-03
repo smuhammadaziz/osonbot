@@ -104,6 +104,4 @@ async def kvartirasotish(call: types.CallbackQuery):
 # ===================================--finish--=====================================
 
 
-@dp.message_handler(Text(startswith="⬅️ Ортга"))
-async def ortga(message: types.Message):
-    await message.answer("<b> Эълон бериш учун керакли бўлимни танланг! </b>", reply_markup=button, parse_mode="HTML")
+
