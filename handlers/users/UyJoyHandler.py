@@ -11,12 +11,6 @@ from loader import dp, bot
 mode = "Markdown"
 
 
-@dp.callback_query_handler(text="hometypeortgabutton", chat_type="private")
-async def kvartirasotish(call: types.CallbackQuery):
-    await call.answer("Категорияни танланг")
-    await call.message.answer("<b> Категорияни танланг  </b>", reply_markup=button, parse_mode="HTML")
-
-
 # =======================================1=======================================
 @dp.callback_query_handler(text="andijon", chat_type="private")
 async def kvartirasotish(call: types.CallbackQuery):

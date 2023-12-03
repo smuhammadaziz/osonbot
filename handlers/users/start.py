@@ -63,3 +63,7 @@ async def restart(message: types.Message, state: FSMContext):
 async def ortga(message: types.Message):
     await message.answer("<b> Ҳудудни танланг: </b>", reply_markup=allRegionsKvartira, parse_mode="HTML")
 
+@dp.callback_query_handler(text="hometypeortgabutton", chat_type="private")
+async def kvartirasotish(call: types.CallbackQuery):
+    await call.answer("Категорияни танланг")
+    await call.message.answer("<b> Ҳудудни танланг:  </b>", reply_markup=allRegionsKvartira, parse_mode="HTML")
