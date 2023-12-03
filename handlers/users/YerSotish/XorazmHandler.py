@@ -512,9 +512,12 @@ async def check(message: types.Message, state: FSMContext):
 
     success_text = "✅ Эълон каналга жойланди!"
 
-    data20 = "➖➖➖➖➖➖➖➖➖➖➖ \n"
-    data21 = "<a href='https://t.me/OsonBozorBot'><b>        ЭЪЛОН БЕРИШ</b></a>\n"
-    data22 = "➖➖➖➖➖➖➖➖➖➖➖ \n\n"
+    data30 = "✅ <b>2- </b>Дақиқа ичида эълон беринг  \n\n"
+    data31 = "✅ Ўзингиз Админ бўлинг  \n\n"
+    data32 = "<b>✅ Эълон Бериш БЕПУЛ❗️  \n\n</b>"
+    data33 = "       ⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻\n"
+    data34 = "    │<a href='https://t.me/OsonBozorBot'><b>    ЭЪЛОН БЕРИШ    </b></a>│\n"
+    data35 = "       ⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻\n\n"
 
     media_group = types.MediaGroup()
 
@@ -548,7 +551,7 @@ async def check(message: types.Message, state: FSMContext):
                 array.append(item)
 
             stringify = " ".join(array)
-            cyrillic_text = to_cyrillic(stringify) + data20 + data21 + data22
+            cyrillic_text = to_cyrillic(stringify)+data30+data31+data32+data33+data34+data35
 
             media_group.attach_photo(photos[0], caption=cyrillic_text, parse_mode="HTML")
 
@@ -586,7 +589,7 @@ async def check(message: types.Message, state: FSMContext):
                 array.append(item)
 
             stringify = " ".join(array)
-            cyrillic_text = to_cyrillic(stringify) + data20 + data21 + data22
+            cyrillic_text = to_cyrillic(stringify)+data30+data31+data32+data33+data34+data35
 
             media_group.attach_photo(photos[0], caption=cyrillic_text, parse_mode="HTML")
 
@@ -623,7 +626,7 @@ async def check(message: types.Message, state: FSMContext):
                 array.append(item)
 
             stringify = " ".join(array)
-            cyrillic_text = to_cyrillic(stringify) + data20 + data21 + data22
+            cyrillic_text = to_cyrillic(stringify)+data30+data31+data32+data33+data34+data35
 
             media_group.attach_photo(photos[0], caption=cyrillic_text, parse_mode="HTML")
 
@@ -661,7 +664,7 @@ async def check(message: types.Message, state: FSMContext):
                 array.append(item)
 
             stringify = " ".join(array)
-            cyrillic_text = to_cyrillic(stringify) + data20 + data21 + data22
+            cyrillic_text = to_cyrillic(stringify)+data30+data31+data32+data33+data34+data35
 
             media_group.attach_photo(photos[0], caption=cyrillic_text, parse_mode="HTML")
 

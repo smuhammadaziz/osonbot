@@ -676,12 +676,12 @@ async def check(message: types.Message, state: FSMContext):
 
     success_text = "✅ Эълон каналга жойланди!"
 
-    data30 = "\n✅ Ўзингиз Админ бўлинг  \n\n"
-    data31 = "✅ 1- Дақиқа ичида эълонни жойланг  \n\n"
+    data30 = "✅ <b>2- </b>Дақиқа ичида эълон беринг  \n\n"
+    data31 = "✅ Ўзингиз Админ бўлинг  \n\n"
     data32 = "<b>✅ Эълон Бериш БЕПУЛ❗️  \n\n</b>"
-    data33 = "       ⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻\n"
-    data34 = "    │<a href='https://t.me/OsonBozorBot'><b>      ЭЪЛОН БЕРИШ   </b></a>│\n"
-    data35 = "       ⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻\n\n"
+    data33 = "       ⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻\n"
+    data34 = "    │<a href='https://t.me/OsonBozorBot'><b>    ЭЪЛОН БЕРИШ    </b></a>│\n"
+    data35 = "       ⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻\n\n"
 
     media_group = types.MediaGroup()
 
