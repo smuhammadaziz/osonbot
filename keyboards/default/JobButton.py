@@ -7,7 +7,7 @@ button = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True,
 
 start = ReplyKeyboardMarkup(resize_keyboard=True, row_width=4, one_time_keyboard=True, selective=True,
                              keyboard=[
-                                 [KeyboardButton(text="START")],
+                                 [KeyboardButton(text="START"), KeyboardButton(text="START")],
                              ])
 
 
