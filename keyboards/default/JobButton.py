@@ -1,6 +1,6 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-send_contact = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True,
+send_contact = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True, is_persistent=True,
                                    keyboard=[
                                         [KeyboardButton(text='Tasdiqlash', request_contact=True)]
                                    ])
