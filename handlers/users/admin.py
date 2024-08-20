@@ -1,6 +1,6 @@
 import logging
 import asyncio
-from aiogram import Router, types
+from aiogram import F, Router, types
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from loader import db, bot
@@ -9,6 +9,10 @@ from states.test import AdminState
 from filters.admin import IsBotAdminFilter
 from data.config import ADMINS
 from utils.pgtoexcel import export_to_excel
+
+from filters.group_chat import IsGroup
+
+from aiogram.enums import ChatType
 
 router = Router()
 
@@ -32,15 +36,17 @@ async def ask_ad_content(message: types.Message, state: FSMContext):
 @router.message(AdminState.ask_ad_content, IsBotAdminFilter(ADMINS))
 async def send_ad_to_users(message: types.Message, state: FSMContext):
     users = await db.select_all_users()
+
     count = 0
+    
     for user in users:
-        user_id = user[-1]
+        chat_id = user['chat_id']
         try:
-            await message.send_copy(chat_id=user_id)
+            await message.send_copy(chat_id=chat_id)
             count += 1
             await asyncio.sleep(0.05)
         except Exception as error:
-            logging.info(f"Ad did not send to user: {user_id}. Error: {error}")
+            logging.info(f"Ad did not send to user: {chat_id}. Error: {error}")
     await message.answer(text=f"Reklama {count} ta foydalauvchiga muvaffaqiyatli yuborildi.")
     await state.clear()
 

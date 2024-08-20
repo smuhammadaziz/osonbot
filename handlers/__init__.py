@@ -10,7 +10,7 @@ def setup_routers() -> Router:
     router = Router()
 
     # Agar kerak bo'lsa, o'z filteringizni o'rnating
-    start.router.message.filter(ChatPrivateFilter(chat_type=["private"]))
+    # start.router.message.filter(ChatPrivateFilter(chat_type=["private", 'group', 'supergroup']))
 
     router.include_routers(admin.router, start.router, help.router, echo.router, error_handler.router)
 

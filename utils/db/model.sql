@@ -27,5 +27,3 @@ create table hovli(
 );
 
 ------------------------------
-
-insert into users(name, username, chat_id, phone) values('Muhammadaziz', 'rmuhammadaziz', '545545', '+998900291088');
